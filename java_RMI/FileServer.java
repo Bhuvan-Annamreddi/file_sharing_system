@@ -1,5 +1,5 @@
 /**Sets up the server
- * @author Harun Anne */
+ * @author Bhuvan Annamreddi (G01094130) */
 import java.rmi.registry.LocateRegistry;
 import java.rmi.Naming;
 
