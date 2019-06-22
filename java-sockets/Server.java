@@ -1,6 +1,6 @@
 /**
  * This class implements Client fuctions that initiates a server connection
- * @author Harun Anne(G01102695)
+ * @author Bhuvan Annamreddi (G01094130)
  */
 import java.io.IOException;
 import java.net.ServerSocket;
