@@ -1,6 +1,6 @@
 /**Connects to the FileServer
 Client File
- * @author Harun Anne */
+ * @author Bhuvan Annamreddi (G01094130)*/
 import java.io.*;
 import java.rmi.*;
 import java.util.Arrays;
