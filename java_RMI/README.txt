@@ -1,7 +1,3 @@
-Bhuvan Chowdary Annamreddi
-G01094130
-bannamre@masonlive.gmu.edu
-
 /*********************************************************************************/
 
 Instructions for starting the server and client setup.
@@ -35,7 +31,7 @@ java -cp pa2.jar Client shutdown
 Below are commands that your system MUST support (we plan to create a test script), in order of the overall requirements above.  Unix syntax shown:
 java -cp pa1.jar server start <portnumber> &
 # To set up client so it knows what server to talk to:
-export PA1_SERVER=<computername:portnumber> # On Windows: set PA1_SERVER=Ö..
+export PA1_SERVER=<computername:portnumber> # On Windows: set PA1_SERVER=‚Ä¶..
 java -cp pa2.jar client upload <path_on_client> </path/filename/on/server>
 java -cp pa2.jar client download </path/existing_filename/on/server> <path_on_client>
 java -cp pa2.jar client dir </path/existing_directory/on/server>
@@ -47,34 +43,34 @@ java -cp pa2.jar client shutdown
 /*********************************************************************************/
 
 You are charged with building a simple file sharing system (FSS) using a simple command line interface.  The FSS consists of two types of entities: a file server and many clients.  In this FSS:
-1.	The client MUST be able to upload files to the file server.  Itís fine to upload them one at a time.  If the file already exists, replace it.
+1.	The client MUST be able to upload files to the file server.  It‚Äôs fine to upload them one at a time.  If the file already exists, replace it.
 2.	The client MUST be able to download a given file from the file server, by providing the full filename path to the file server.  If the file does not already exist, it MUST return an error message on standard error and return a non-zero error code.
-3.	The client MUST be able to list the file system objects (files and directories) on a file server directory, including the file serverís root (ì/î) directory.  If the requested directory does not exist, it MUST report an error message on standard error and return a non-zero error code.
-4.	The client MUST be able to create a directory (if the directory does not exist) and remove empty directories (if the directory is empty), and MUST be able to report whether or not these operations succeeded.  If thereís an error, it MUST report an error message on standard error and return a non-zero error code.
+3.	The client MUST be able to list the file system objects (files and directories) on a file server directory, including the file server‚Äôs root (‚Äú/‚Äù) directory.  If the requested directory does not exist, it MUST report an error message on standard error and return a non-zero error code.
+4.	The client MUST be able to create a directory (if the directory does not exist) and remove empty directories (if the directory is empty), and MUST be able to report whether or not these operations succeeded.  If there‚Äôs an error, it MUST report an error message on standard error and return a non-zero error code.
 5.	The client MUST be able to remove a given file from the file server, by providing the full filename path to the file server.  If the file does not already exist, it MUST return an error message on standard error and return a non-zero error code.
-6.	The file server MUST allow multiple clients to simultaneously connect to a single file server for upload/download, and allow for apparently-simultaneous transfer (e.g., itís NOT okay for the file server to wait for one transfer to complete before another begins).
+6.	The file server MUST allow multiple clients to simultaneously connect to a single file server for upload/download, and allow for apparently-simultaneous transfer (e.g., it‚Äôs NOT okay for the file server to wait for one transfer to complete before another begins).
 7.	Clients MUST be able to cleanly shut down the file server.
-8.	The system MUST support the resume upload and download: If a file transfer between a client and a server is interrupted (because the network, server, or client has failed), the same client MUST be able to resume upload/download at the file server from the same point of progress by re-requesting the same filename. In other words, the client MUST NOT have to upload/download the data that is already uploaded/downloaded.  Note that you have to handle server crashes too ñ you may want to use ìflush()î in the server.  In order for the TA to verify that you have implemented this functionality the program MUST print the progress of upload/download as itís proceeding, including an indication that a partial download is skipping re-download of some portion of the file.
-The client will need to know how to contact the server; for this exercise, the client MUST accept this in an environment variable named PA1_SERVER with the computer name, a colon, and the TCP portnumber (e.g., ìlocalhost:8000î).  The server will need a place to store its data; its file system ìrootî MUST be the current directory for when it is started.
-Do not make any other assumptions about the properties of the file. The file sharing system MUST be able to exchange files of any type and with arbitrary filenames.  Note: Linux/Unix filesystems are normally case-sensitive, but Windows/MacOS are normally case-insensitive; you donít need to provide case-sensitive functionality on non-case-sensitive systems, but it MUST maintain the upper/lower case provided to it since that information matters on some systems.  If thereís no error, return an error code of 0 (no error).
-When developing your system you MUST use Java, and for the networking portions you MUST use ONLY the Java sockets libraries (no JMI, etc.). No other use of third party software is allowed, unless explicitly permitted by the instructor.  For purposes of this exercise weíll totally ignore security, e.g., no authentication or authorization is needed.  Note that illegally downloaded files (i.e., files violating the copyright laws) may not be used for developing, testing, or demoing your assignment.
+8.	The system MUST support the resume upload and download: If a file transfer between a client and a server is interrupted (because the network, server, or client has failed), the same client MUST be able to resume upload/download at the file server from the same point of progress by re-requesting the same filename. In other words, the client MUST NOT have to upload/download the data that is already uploaded/downloaded.  Note that you have to handle server crashes too ‚Äì you may want to use ‚Äúflush()‚Äù in the server.  In order for the TA to verify that you have implemented this functionality the program MUST print the progress of upload/download as it‚Äôs proceeding, including an indication that a partial download is skipping re-download of some portion of the file.
+The client will need to know how to contact the server; for this exercise, the client MUST accept this in an environment variable named PA1_SERVER with the computer name, a colon, and the TCP portnumber (e.g., ‚Äúlocalhost:8000‚Äù).  The server will need a place to store its data; its file system ‚Äúroot‚Äù MUST be the current directory for when it is started.
+Do not make any other assumptions about the properties of the file. The file sharing system MUST be able to exchange files of any type and with arbitrary filenames.  Note: Linux/Unix filesystems are normally case-sensitive, but Windows/MacOS are normally case-insensitive; you don‚Äôt need to provide case-sensitive functionality on non-case-sensitive systems, but it MUST maintain the upper/lower case provided to it since that information matters on some systems.  If there‚Äôs no error, return an error code of 0 (no error).
+When developing your system you MUST use Java, and for the networking portions you MUST use ONLY the Java sockets libraries (no JMI, etc.). No other use of third party software is allowed, unless explicitly permitted by the instructor.  For purposes of this exercise we‚Äôll totally ignore security, e.g., no authentication or authorization is needed.  Note that illegally downloaded files (i.e., files violating the copyright laws) may not be used for developing, testing, or demoing your assignment.
 
 
 
 
 
 Below is an example:
-mkdir ñp server ; cd server
+mkdir ‚Äìp server ; cd server
 java -cp pa2.jar server start 8000
-cd .. ; mkdir ñp client1 ; cd client1
+cd .. ; mkdir ‚Äìp client1 ; cd client1
 export PA1_SERVER=localhost:8000
 java -cp pa2.jar client upload text1.pdf /folders/text1.pdf
-Uploading file Ö. 50% (changes real-time)
+Uploading file ‚Ä¶. 50% (changes real-time)
 File uploaded.
 (start another client)
-cd ..; mkdir ñp client2 ; cd client2
+cd ..; mkdir ‚Äìp client2 ; cd client2
 java -cp pa2.jar client download /folders/text1.pdf copy_of_text1.pdf
-Downloading file Ö. 50% (changes real-time)
+Downloading file ‚Ä¶. 50% (changes real-time)
 File Downloaded.
 java -cp pa2.jar client shutdown
 
